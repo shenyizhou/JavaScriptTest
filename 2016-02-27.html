@@ -1,0 +1,57 @@
+<!-- 2016-02-27 13:23:53 -->
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+
+//没有返回值的函数成为过程（procedure）
+// function printprops(o){
+// 	for (var p in o){
+// 		console.log(p + ": " + o[p] + "\n");
+// 	}
+// }
+// printprops({x:1});
+
+// var square = function aa(x) { return x*x;}
+//console.log(aa(22));//undefined
+
+// var f = function fact(x) { if (x<=1) return 1; else return x*fact(x-1) ;};
+// console.log(f(5));
+
+//let a = 5;
+//console.log(a);//块级作用域下的声明（let, const, function, class）等在严格模式下是不被支持的。
+
+// var arr = new Array(6)
+// arr[0] = "10"
+// arr[1] = "5"
+// arr[2] = "40"
+// arr[3] = "25"
+// arr[4] = "1000"
+// arr[5] = "1"
+// console.log(arr.sort(function (a,b) {return a-b;}));
+
+// var tensquared = (function(x) {return x*x;}(10))
+// console.log(typeof tensquared);
+
+// function hypotenuse (a,b) {
+// 	function square(x) { console.log(this);return x*x;}console.log(this);//都是Window
+// 	return Math.sqrt(square(a) + square(b));
+// }
+
+// var strict = (function() { return !this;}());//判断是否为严格模式
+// console.log(strict);
+
+// var calculator = {
+// 	operand1 : 1,
+// 	operand2 : 2,
+// 	add : function(){
+// 		this.result = this.operand1 + this.operand2;
+// 	}
+// };
+// calculator.add();
+// console.log(calculator.result);
+
+</script>
+</body>
+</html>
