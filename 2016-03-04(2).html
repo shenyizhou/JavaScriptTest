@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>闭包演示</title>
+<style type="text/css">
+    p {background:gold;}
+</style>
+<script type="text/javascript">
+
+//错误
+function init() {
+    var pAry = document.getElementsByTagName("p");
+    for( var i=0; i<pAry.length; i++ ) {
+         pAry[i].onclick = function() {
+         console.log(i);
+    }
+  }
+}
+
+// function init1() {
+//     var pAry = document.getElementsByTagName("p");
+//     for( var i=0; i<pAry.length; i++ ) {
+//          pAry[i].i = i;
+//          pAry[i].onclick = function() {
+//          console.log(this.i);
+//     }
+//   }
+// }
+
+// function init2() {
+//     var pAry = document.getElementsByTagName("p");
+//     for( var i=0; i<pAry.length; i++ ) {
+//          (pAry[i].onclick = function() {
+//          console.log(arguments.callee.i);
+//     }).i = i;
+//   }
+// }
+
+ // function init3() {
+ // 	var pAry = document.getElementsByTagName("p");
+ // 	for (var i = 0; i < pAry.length; i++) {
+ // 		(function(arg) {
+ // 			pAry[i].onclick = function() {
+ // 				console.log(arg);
+ // 			};
+ // 		})(i); //调用时参数
+ // 	}
+ // }
+
+// function init4() {
+// 	var pAry = document.getElementsByTagName("p");
+// 	for (var i = 0; i < pAry.length; i++) {
+// 		(function() {
+// 			var temp = i; //调用时局部变量
+// 			pAry[i].onclick = function() {
+// 				console.log(temp);
+// 			}
+// 		})();
+// 	}
+// }
+
+ // function init5() {
+ // 	var pAry = document.getElementsByTagName("p");
+ // 	for (var i = 0; i < pAry.length; i++) {
+ // 		pAry[i].onclick = function(arg) {
+ // 			return function() { //返回一个函数
+ // 				console.log(arg);
+ // 			}
+ // 		}(i);
+ // 	}
+ // }
+
+ // function init6() {
+ // 	var pAry = document.getElementsByTagName("p");
+ // 	for (var i = 0; i < pAry.length; i++) {
+ // 		pAry[i].onclick = new Function("console.log(" + i + ");"); //new一次就产生一个函数实例
+ // 	}
+ // }
+
+ // function init7() {
+ // 	var pAry = document.getElementsByTagName("p");
+ // 	for (var i = 0; i < pAry.length; i++) {
+ // 		pAry[i].onclick = Function('console.log(' + i + ')');
+ // 	}
+ // }
+
+// function outerFun() {
+//  	var a = 0;
+
+//  	function innerFun() {
+//  		a++;
+//  		alert(a);
+//  	}
+//  	return innerFun; //注意这里
+//  }
+//  var obj = outerFun();
+//  obj(); //结果为1
+//  obj(); //结果为2
+
+//this
+var x = 2;　　
+function test() {　　　　
+	this.x = 1;　　
+}　　
+var o = new test();　　
+console.log(x); //2
+console.log(o.x); //1
+</script>
+</head>
+<body onload="init();">
+<p>产品 0</p>
+<p>产品 1</p>
+<p>产品 2</p>
+<p>产品 3</p>
+<p>产品 4</p>
+</body>
+</html>
