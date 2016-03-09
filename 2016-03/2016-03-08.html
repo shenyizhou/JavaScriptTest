@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></></title> 
+<style type="text/css">
+body {
+    background: #2c3e50;/*深蓝*/
+    color: #ecf0f1;/*灰色*/
+}
+/*
+    虚线数组
+    <path stroke-dasharray="5,5" d="M5 20 l215 0" />  5px实线5px空白 moveto 20  lineto  215 0
+    <path stroke-dasharray="10,10" d="M5 40 l215 0" />  10px实线10px空白
+    <path stroke-dasharray="20,10,5,5,5,10" d="M5 60 l215 0" />20px实线10px空白5px实线5px空白5px实线10px空白
+*/
+.box {
+    width: 300px;
+    height: 460px;
+    position: relative;/*相对于父元素*/
+    background: rgba(255,255,255,1);/*纯白不透明*/
+    display: inline-block;
+    margin: 0 10px;/*外边距：上下0px 左右10px*/
+    cursor: pointer;/*光标呈现为指示链接的手掌*/
+    color: #2c3e50;/*深蓝*/
+    box-shadow: inset 0 0 0 3px #2c3e50;/*内部阴影 上下左右位移0px 模糊0px 阴影边距3px 深蓝*/
+    -webkit-transition: background 0.4s 0.5s;
+    transition: background 0.4s 0.5s;/*持续0.4S 延时0.5S*/
+}
+
+.box:hover {
+    background: rgba(255,255,255,0);/*纯白透明*/
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;/*延时0S
+*/}
+
+.box span {
+    display: block;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+    padding: 5px;
+    -webkit-transition: color 0.4s 0.5s;
+    transition: color 0.4s 0.5s;
+}
+
+
+.box:hover span {
+    color: #fff;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+.box svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.box svg line {
+    stroke-width: 3;
+    stroke: #ecf0f1;
+    fill: none;
+    -webkit-transition: all .8s ease-in-out;
+    transition: all .8s ease-in-out;
+}
+
+.box:hover svg line {
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+}
+
+.box svg line.top,
+.box svg line.bottom {
+    stroke-dasharray: 330 240;
+}
+
+.box svg line.left,
+.box svg line.right {
+    stroke-dasharray: 490 400;
+}
+
+.box:hover svg line.top {
+    -webkit-transform: translateX(-600px);
+    transform: translateX(-600px);
+}
+
+.box:hover svg line.bottom {
+    -webkit-transform: translateX(600px);
+    transform: translateX(600px);
+}
+
+.box:hover svg line.left {
+    -webkit-transform: translateY(920px);
+    transform: translateY(920px);
+}
+
+.box:hover svg line.right {
+    -webkit-transform: translateY(-920px);
+    transform: translateY(-920px);
+}
+
+/* Alternatives */
+
+/* Color */
+.demo-2 .box {
+    box-shadow: inset 0 0 0 10px #2c3e50;
+}
+
+
+.demo-2 .box svg line {
+    stroke-width: 8;
+}
+
+.demo-2 .box:hover svg line {
+    stroke: #fe6f83;
+}
+
+/* Frame */
+.demo-3 .box {
+    background: rgba(0,0,0,0);
+    color: #fff;
+    box-shadow: none;
+    -webkit-transition: background 0.3s;
+    transition: background 0.3s;
+}
+
+.demo-3 .box:hover {
+    background: rgba(0,0,0,0.4);
+}
+
+
+
+.demo-3 .box svg line {
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+.demo-3 .box:hover svg line {
+    stroke-width: 10;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+.demo-3 .box:hover svg line.top {
+    -webkit-transform: translateX(-300px);
+    transform: translateX(-300px);
+}
+
+.demo-3 .box:hover svg line.bottom {
+    -webkit-transform: translateX(300px);
+    transform: translateX(300px);
+}
+
+.demo-3 .box:hover svg line.left {
+    -webkit-transform: translateY(460px);
+    transform: translateY(460px);
+}
+
+.demo-3 .box:hover svg line.right {
+    -webkit-transform: translateY(-460px);
+    transform: translateY(-460px);
+}
+
+/* Spin */
+.demo-4 .box {
+    box-shadow: none;
+    background: rgba(0,0,0,0.4);
+    -webkit-transition: none;
+    transition: none;
+    color: #fff;
+}
+
+.demo-4 .box svg line {
+    stroke-width: 30;
+    -webkit-transition: all .4s;
+    transition: all .4s;
+}
+
+.demo-4 .box:hover svg line {
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+.demo-4 .box:hover svg line {
+    stroke-width: 0;
+}
+
+.demo-4 .box svg line.top,
+.demo-4 .box svg line.bottom {
+    stroke-dasharray: 300;
+}
+
+.demo-4 .box svg line.left,
+.demo-4 .box svg line.right {
+    stroke-dasharray: 460;
+}
+
+.demo-4 .box:hover svg line.top {
+    -webkit-transform: translateX(-300px);
+    transform: translateX(-300px);
+}
+
+.demo-4 .box:hover svg line.bottom {
+    -webkit-transform: translateX(300px);
+    transform: translateX(300px);
+}
+
+.demo-4 .box:hover svg line.left {
+    -webkit-transform: translateY(460px);
+    transform: translateY(460px);
+}
+
+.demo-4 .box:hover svg line.right {
+    -webkit-transform: translateY(-460px);
+    transform: translateY(-460px);
+}
+	</style>
+</head>
+<body>
+<div class="box">
+	<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+		<line class="top" x1="0" y1="0" x2="900" y2="0"/>
+		<line class="left" x1="0" y1="460" x2="0" y2="-920"/>
+		<line class="bottom" x1="300" y1="460" x2="-600" y2="460"/>
+		<line class="right" x1="300" y1="0" x2="300" y2="1380"/>
+	</svg>
+</div>
+<span class="demo-2">
+	<div class="box">
+		<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+			<line class="top" x1="0" y1="0" x2="900" y2="0"/>
+			<line class="left" x1="0" y1="460" x2="0" y2="-920"/>
+			<line class="bottom" x1="300" y1="460" x2="-600" y2="460"/>
+			<line class="right" x1="300" y1="0" x2="300" y2="1380"/>
+		</svg>
+	</div>
+</span>
+<span class="demo-3">
+	<div class="box">
+		<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+			<line class="top" x1="0" y1="0" x2="900" y2="0"/>
+			<line class="left" x1="0" y1="460" x2="0" y2="-920"/>
+			<line class="bottom" x1="300" y1="460" x2="-600" y2="460"/>
+			<line class="right" x1="300" y1="0" x2="300" y2="1380"/>
+		</svg>
+	</div>
+</span>
+<span class="demo-4">
+	<div class="box">
+		<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+			<line class="top" x1="0" y1="0" x2="900" y2="0"/>
+			<line class="left" x1="0" y1="460" x2="0" y2="-920"/>
+			<line class="bottom" x1="300" y1="460" x2="-600" y2="460"/>
+			<line class="right" x1="300" y1="0" x2="300" y2="1380"/>
+		</svg>
+	</div>
+</span>
+
+</body>
+</html>
